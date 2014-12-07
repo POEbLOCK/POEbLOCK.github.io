@@ -42,7 +42,7 @@
 						<a href="">More Information</a>
 						<ul>
 							<li><a href="BudgetBreakdown.html">Budget Breakdown</a></li>
-							<li><a href="ContactUs.html">Contact Us</a></li>
+							<li><a href="ContactUs.html">About Us</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -67,18 +67,18 @@
 										
 										<section>
 											<h3>Iteration One</h3>
-											<p>
-												<b>Cardboard</b> This is the first attempt
+											<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For the first iteration of our project, the goal of the mechanical team was to become familiar with a lock and figure out how to trigger the locking mechanism with some sort of actuator. We researched different types of existing locks and decided to gain inspiration from a combination lock. For this first sprint we created a sketch model of the combination locking system to gain a better understanding. This was made of a ubar, rotating circle, and a lever. When a notch in the circle and the lever were aligned, the ubar would be able to lift up and unlock the system, otherwise the lock would remain locked. We hacked this by integrating a servo and connecting the servo horn to the rotating circle. This created linear actuation. As the servo turned, the rotating circle would move linearly to change the position of the notch. 
+											<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For our first attempt, we were satisfied with creating a possible locking mechanism that could be powered by an electrical system.  Having known nothing about locks before hand, it was interesting to explore this field. At the end of this sprint, we felt comfortable with taking this basic design and modifying it the be implemented in a working prototype.  
+											</br>
 											</p>
 												<div class="4u">
 												
 												<!-- Feature -->
 													<section class="box feature">
 														<a class="image featured"><img src="images/unnamed.jpg"></a>
-														<h3>First Iteration</a></h3>
+														<h3>The Cardboard Iteration</a></h3>
 														<p>
-															Phasellus quam turpis, feugiat sit amet ornare in, a hendrerit in 
-															lectus dolore. Praesent semper mod quis eget sed etiam eu ante risus.
+															This is the sketch model we created. A servo is under the circle shown on the right and as the circle spins, the left circle moves linearily from left to right. 
 														</p>
 													</section>
 										
@@ -88,8 +88,9 @@
 
 										<section>
 											<h3>Iteration Two</h3>
-											<p>
-												<b>Upgrade from Cardboard</b> These are the poetic words of beauty.
+											<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Now that we had a basic understanding of simple locks, our goal was to create the concept a fully integrated, functional lock. Last iteration we explored linear actuation with a servo. We liked the movement it created and decided to stick with that idea, but use it in a different way. We also kept the concept of the lock the same. Just like the combination lock, one side of a ubar would slide in and out of the body of the lock. To use this with a bike, the user would wrap a bike chain around their bike and then attach the lock. 
+											<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For this iteration, we reduced the amount of parts we had to work with and used a rack and pinion for the linear actuation. The pinion gear was mounted to the servo, and would interact with the rack. Attached to the rack is a bar that would interfere with the ubar. This bar fit into the cut out of the ubar, and would prevent the ubar from being lifted up. To enclose everything, we created a case that securely mounted all the elecrical components, and enclosed them. We 3D printed the case to show how everything would fit into our smart bike lock concept.</br>
+											<br2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The problem we encountered with this mechanically was the user interface of locking your bike. To insert the lock, the user had to tell the lock to unlock, put the ubar in, and press lock again. This seemed redundant and inconvenient to the user.  </br2>
 											</p>
 											<div class="row">
 											<div class="6u">
@@ -97,10 +98,9 @@
 												<!-- Feature -->
 													<section class="box feature">
 														<a class="image featured"><img src="images/IterationMech.JPG" alt="" /></a>
-														<h3>Case of Box with Components inside</a></h3>
+														<h3>Upgrade from Cardboard</a></h3>
 														<p>
-															Phasellus quam turpis, feugiat sit amet ornare in, a hendrerit in 
-															lectus dolore. Praesent semper mod quis eget sed etiam eu ante risus.
+															Here is the fully integrated lock with the 3D printed case. All components are featured in this CAD model.
 														</p>
 													</section>
 										
@@ -112,8 +112,7 @@
 														<a class="image featured"><img src="images/IterationMech12.JPG" alt="" /></a>
 														<h3>Locking Mechanism</a></h3>
 														<p>
-															Phasellus quam turpis, feugiat sit amet ornare in, a hendrerit in 
-															lectus dolore. Praesent semper mod quis eget sed etiam eu ante risus.
+															This is the specific locking mechanism used in the second iteration bike lock.
 														</p>
 													</section>
 										
@@ -125,16 +124,8 @@
 									</section>
 										<section>
 											<h3>Iteration Three</h3>
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus 
-												justo. Sed dictum rutrum massa eu volutpat. Quisque vitae hendrerit sem. Pellentesque lorem felis, 
-												ultricies a bibendum id, bibendum sit amet nisl. Mauris et lorem quam. Maecenas rutrum imperdiet 
-												vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor. 
-												Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis 
-												rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien. 
-												Donec sagittis massa et leo semper a scelerisque metus faucibus. Morbi congue mattis mi. 
-												Phasellus sed nisl vitae.
-											</p>
+											<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In this iteration, we wanted to tackle the problem of having the user interact with the app to lock bike. We also wanted to have the lock be attached to a bike chain rather than having the lock and the chain be two separate parts. We redesigned our locking mechanism completely, to interface with the header of a normal bike lock, and got rid of the linear actuation. We now have a male header placed at the end of a chain that inserts into the body of the lock. The user places the lock header into the body, and slides it down to the bottom of the slot. The lock is fully locked at this position. The header slid down past a spring loaded barricade that allows it to slide down, but when the user tries to bring it back up the barricade is in the way. To unlock this, a servo squeezes a spring, moving the barricade out of the way. Then the user can slide the insert back up, and out of the lock body. After a certain amount of time, the servo moves and brings the spring back to equilbrium placing the lock into a locked state. </p>
+																							
 												</p>
 											<div class="row">
 												<div class="6u">
@@ -171,7 +162,7 @@
 											<h3>Final Iteration</h3>
 
 											<p>
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus 
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus 
 												justo. Sed dictum rutrum massa eu volutpat. Quisque vitae hendrerit sem. Pellentesque lorem felis, 
 												ultricies a bibendum id, bibendum sit amet nisl. Mauris et lorem quam. Maecenas rutrum imperdiet 
 												vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor. 
