@@ -93,6 +93,29 @@
 										</section>
 
 										<section>
+											<h3>Widget Design</h3>
+											<span class="image featured"><img src="images/pic05.jpg" alt="" /></span>
+											<p>
+												Our android widget has two buttons for locking/unlocking and changing mode. 
+												Every time a user click the lock button, the widget calls a function of the main activity of our app. 
+												The function toggles lock button of the app and send bluetooth lock/unlock signal to arduino board. 
+												After calling the function, the widget saves current lock and mode state into the user's local device. 
+												Then the widget loads the values again by an undate function, and changes its button icons with checking current state. 
+												The mode button of the widget works exactly the same as it except sending signal to arduino board.
+											</p>
+											<p>
+												If a user click the lock button in the app, then the toggles its button and send signal to arduino board. 
+												Then it saves current state values into the user's local device and calls an update function of the widget. 
+												Widget's update function loads the values and changes its button icons to meet the current state. 
+											<p/>
+											<p>
+												There were given methods for app to call update function of widget. 
+												However, when making the widget call the button toggling functions in the app, 
+												we had to make those functions and related variables static so that the widget can call those functions directly.
+											</p>
+										</section>
+										
+										<section>
 											<h3>So in conclusion ...</h3>
 											<p>
 												Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus 
