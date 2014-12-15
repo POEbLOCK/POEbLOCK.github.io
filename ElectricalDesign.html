@@ -71,11 +71,20 @@
 											<p>
 												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In this iteration, multiple design decisions regarding the electrical system for the project had to be made. The microcontroller we would run our code on and which Bluetooth Low Energy (BLE) module for our selected microcontroller had to be purchased. After some initial research, we had the idea of using a Tessel as our microcontroller which already has a designated BLE module. After talking to our instructors about this decision, we pulled away from the idea due to the fact that none of the instructors or course assistants had experience working with a Tessel. In addition, working with a Tessel meant writing code in JavaScript, which is a language neither our electrical or software team had a lot of experience in.
 												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As a result, at the conclusion of our first iteration, we pivoted to using an Arduino for a microcontroller. We then had the option of picking from a variety of BLE shields from makers such as RedBearLabs, SeeedStudio, or Adafruit. We ultimately ended up choosing the Adafruit shield because of the documentation they provide for their products. We knew that after we got the shield, we could set it up and use it very quickly following their tutorials.</br>
-												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For the first iteration of bLOCK, the electrical system consisted of three components: an Adafruit BLE shield, an Arduino Uno, and a servo. The electrical system took as input a single character sent from a pre-built app, Adafruit’s  nRF UART app, that interfaced with our BLE shield. On the Arduino side, the Adafruit BLE UART library provided all the functionality needed to read data sent over Bluetooth from the phone.
-</br>
-												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Taking that character as input, the Arduino actuated the servo to move a cardboard circle between locked and unlocked positions. For this very simple iteration, the Arduino was not sending data back to the phone and there was no form of Bluetooth security between the Arduino and the phone. That is, any phone running the same app would be able to connect and write data to the Arduino. If they provided the correct characters, the lock would unlock.
 
-												The Adafruit tutorial that we heavily relied on in this iteration is found<a href="https://learn.adafruit.com/getting-started-with-the-nrf8001-bluefruit-le-breakout/introduction"> here.</a>
+												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For the first iteration of bLOCK, the electrical system consisted of three components: an Adafruit BLE shield, an Arduino Uno, and a servo. The electrical system took as input a single character sent from a pre-built app, Adafruit’s  nRF UART app, that interfaced with our BLE shield. On the Arduino side, the Adafruit BLE UART library provided all the functionality needed to read data sent over Bluetooth from the phone.
+													<section class="box feature">
+														<a class="image featured"><img src="images/IterationMech12.JPG" alt="" /></a>
+														<h3>Locking Mechanism</a></h3>
+														<p>
+															This is the specific locking mechanism used in the second iteration bike lock.
+														</p>
+													</section>
+
+</br>
+												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Taking that character as input, the Arduino actuated the servo to move a cardboard circle between locked and unlocked positions. For this very simple iteration, the Arduino was not sending data back to the phone and there was no form of Bluetooth security between the Arduino and the phone. That is, any phone running the same app would be able to connect and write data to the Arduino. If they provided the correct characters, the lock would unlock.</br>
+
+												<br>The Adafruit tutorial that we heavily relied on in this iteration is found<a href="https://learn.adafruit.com/getting-started-with-the-nrf8001-bluefruit-le-breakout/introduction"> here.</a></br>
 
 											</p>
 										</section>
