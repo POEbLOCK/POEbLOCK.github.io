@@ -69,7 +69,10 @@
 
 												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For the first iteration of bLOCK, the electrical system consisted of three components: an Adafruit BLE shield, an Arduino Uno, and a servo. The electrical system took as input a single character sent from a pre-built app, Adafruit’s  nRF UART app, that interfaced with our BLE shield. On the Arduino side, the Adafruit BLE UART library provided all the functionality needed to read data sent over Bluetooth from the phone.
 												
-</br>
+												</br>
+
+												<img src="images/Iteration_1.png">
+
 												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Taking that character as input, the Arduino actuated the servo to move a cardboard circle between locked and unlocked positions. For this very simple iteration, the Arduino was not sending data back to the phone and there was no form of Bluetooth security between the Arduino and the phone. That is, any phone running the same app would be able to connect and write data to the Arduino. If they provided the correct characters, the lock would unlock.</br>
 
 												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Adafruit tutorial that we heavily relied on in this iteration is found<a href="https://learn.adafruit.com/getting-started-with-the-nrf8001-bluefruit-le-breakout/introduction"> here.</a></br>
@@ -97,6 +100,8 @@
 												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In our third iteration, we swapped out the Arduino Uno, which was far larger a microcontroller than we needed, for an Arduino Micro. We had to choose between the Arduino Nano and the Arduino Micro. Ultimately, we chose the Micro despite it being the more expensive of the two, because the Nano is no longer produced and the Micro had all of the functionality we needed for our bLOCK.
 </br>
 												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In addition to swapping in the Micro, in this iteration we powered the lock with a 9V battery simply to check that we could power our bike lock with a battery. We then began to scope out our final battery, because we did not need a full 9V. We decided to order a 3.3 V 850 mAh LiPo battery, in addition to a boost board that would convert the 3.3 V to 5 V. The boost board also added the ability to recharge the lock.</br>
+
+												<img src="images/Iteration_3.png"
 												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In our previous iteration, we worked briefly with the RSSI signal, transmitted from the phone. Our primary goal in the previous iteration was simply to successfully reading the correct RSSI value on the Arduino. However, the RSSI signal is very noisy and jumps around a lot. In addition, our previous iteration simply thresholds the RSSI value. Ultimately, our ideal use case would be to have the lock automatically unlock when the user walks towards the lock and lock when the user is walking away.
 
  </br>
