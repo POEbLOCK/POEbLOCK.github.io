@@ -63,8 +63,7 @@
 										
 										<section>
 											<h3>Iteration One</h3>
-											<p>
-
+											<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For our first iteration, we wanted to use a preliminary Android app to control the servo used to move the primary locking mechanism of a sketch model lock. We integrated the mechanical and electrical systems by attaching a servo horn to the rotating circle of our sketch model (See Mechanical, Iteration 1), which created linear actuation. As the servo turned, the rotating circle would move linearly to change the position of the notch used to secure the U-bar. In order to control the servo, we used an already existing Android app, which came with the ble module. It allowed us to send letters to our Arduino. Our code for our microcontroller was written so that when it received a “U”, it would move the servo to the position needed for the U-bar to come up and therefore be unlocked. When the microcontroller received a “L”, it would move the servo so that the U-bar would be constrained within the system. So, from this iteration, we knew we could control a locking mechanism via a servo controlled via an Android app, which helped us continue to develop future iterations.	
 											</p>
 									
 											
