@@ -24,11 +24,6 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
 	<body>
-
-		<!-- Header -->
-			<header id="header">
-			</header>
-
 		<!-- Nav -->
 				<nav id="nav" class="skel-layers-fixed">
 				<ul>
@@ -60,35 +55,41 @@
 									<article class="box page-content">
 
 										<header>
-											<h2>Software Design</h2>
-											<p>How is the Application Working?</p>
-										
+											<h2>Software Design</h2>										
 										</header>
 
 										<section>
 											<span class="image featured"><img src="images/pic05.jpg" alt="" /></span>
+                                            <h3>Iteration 1</h3> 
 											<p>
-												Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus. 
-												Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat. 
-												Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis nisi 
-												consequat etiam lorem ipsum dolor sit amet nullam.
+												Originally when testing our bluetooth module we didn’t in fact use our own app. We used a test app published by Adafruit, the distributor of our bluetooth module breakout. This allowed us to easily send simple commands to our arduino and test the feasibility of our system.
+
 											</p>
 										</section>
 										
 										<section>
-											<h3>More intriguing information</h3>
+											<h3>Iteration 2</h3>
 											<p>
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus 
-												justo. Sed dictum rutrum massa eu volutpat. Quisque vitae hendrerit sem. Pellentesque lorem felis, 
-												ultricies a bibendum id, bibendum sit amet nisl. Mauris et lorem quam. Maecenas rutrum imperdiet 
-												vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor. 
-												Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis 
-												rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien
-												vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor. 
-												Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis 
-												rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien. 
-												Donec sagittis massa et leo semper a scelerisque metus faucibus. Morbi congue mattis mi. 
-												Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum commodo luctus.
+												During this iteration we introduced our own android app. This app had the bare-bones functionality that the app would need to function. We could control the lock state with a phone, we could send and receive received signal strength indicator values and we had our basic design aesthetic nailed down.
+
+											</p>
+										</section>
+                                        
+                                        <section>
+											<h3>Iteration 3</h3>
+											<p>
+												This iteration of the app introduced two way communication between the android app and the arduino. This allows the phones indication of the lock state of the lock to be consistent with reality. The app now also changed background color to indicate the connectivity of the lock to the phone. This iteration also focused on improving our spotty bluetooth connection. After a slew of troubleshooting, we determined that inability to connect consistently was due to two main factors. The first is that in certain edge cases, the app would not continue scanning for new devices. Secondly upon disconnection, the app didn’t fully sever the connection. This led to the phone believing it had been connected to too many devices and wouldn’t continue to connect to our lock.
+
+
+											</p>
+										</section>
+                                        
+                                        <section>
+											<h3>Iteration 4</h3>
+											<p>
+												This final version of the app focused on bluetooth security and lock sharing. Decyphering the bluetooth security protocols available and how to implement them proved to be a serious challenge. Initially we planned on implementing a man in the middle (MITM) protection protocol. Soon we decided that realizing this protocol with the given libraries was going to be too time intensive. We then pivoted to our current security scheme. We use two layers of bluetooth security between our phone and lock. The first is a “Just Works” protocol which encrypts all communications between the phone and lock using defined bluetooth standards. The second is our proprietary call, response, pass protocol. In this protocol, upon connection to the arduino, the app pings the bluetooth module until reliable communications are established. At this point the arduino will respond with a token which denotes that the communication channel has been opened. At this point the app will send once and only once a user entered passkey to the lock to check to see if this user is authenticated with this lock. At this point if the user supplies the correct passkey, then the app will be given control of the lock state. If the user is deauthenticated the bluetooth module device name will be added to a blacklist which is cleared upon app destruction. 
+
+The final version of the app also included a variety of cosmetic changes and small feature additions such as implementing vibrations upon receiving lock or unlock confirmation from the arduino and the addition of an app icon. 
 											</p>
 										</section>
 
@@ -114,25 +115,6 @@
 												There were given methods for app to call update function of widget. 
 												However, when making the widget call the button-toggling functions in the app, 
 												we had to make those functions and related variables static so that the widget can call those functions directly.
-											</p>
-										</section>
-										
-										<section>
-											<h3>So in conclusion ...</h3>
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus 
-												justo. Sed dictum rutrum massa eu volutpat. Quisque vitae hendrerit sem. Pellentesque lorem felis, 
-												ultricies a bibendum id, bibendum sit amet nisl. Mauris et lorem quam. Maecenas rutrum imperdiet 
-												vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor. 
-												Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis 
-												rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien. 
-												Donec sagittis massa et leo semper a scelerisque metus faucibus. Morbi congue mattis mi. 
-												Phasellus sed nisl vitae.
-											</p>
-											<p>
-												Suspendisse laoreet metus ut metus imperdiet interdum aliquam justo tincidunt. Mauris dolor urna, 
-												fringilla vel malesuada ac, dignissim eu mi. Praesent mollis massa ac nulla pretium pretium. 
-												Maecenas tortor mauris, consectetur pellentesque dapibus eget, tincidunt vitae arcu. 
 											</p>
 										</section>
 
