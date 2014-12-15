@@ -59,57 +59,50 @@
 									<article class="box page-content">
 
 										<header>
-											<h2>No Sidebar</h2>
-											<p>Semper amet scelerisque metus faucibus morbi congue mattis</p>
-											<ul class="meta">
-												<li class="icon fa-clock-o">5 days ago</li>
-												<li class="icon fa-comments"><a href="#">1,024</a></li>
-											</ul>
+											<h2>Electrical Design</h2>
 										</header>
-
 										<section>
-											<span class="image featured"><img src="images/pic05.jpg" alt="" /></span>
+											<p>The electrical system uses an Arduino microcontroller and a Bluetooth Low Energy shield to actuate a servo. In each iteration shown below, more and more functionality is added to the Arduino Bluetooth communication and the electrical system as a whole. Our final bLOCK contains a fully functioning electrical system that is battery-powered, rechargeable, and continuously communicates with your phone to keep your bike safe.
+											</section>
+										
+										<section>
+											<h3>Iteration 1
+											</h3>
 											<p>
-												Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus. 
-												Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat. 
-												Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis nisi 
-												consequat etiam lorem ipsum dolor sit amet nullam.
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In this iteration, multiple design decisions regarding the electrical system for the project had to be made. The microcontroller we would run our code on and which Bluetooth Low Energy (BLE) module for our selected microcontroller had to be purchased. After some initial research, we had the idea of using a Tessel as our microcontroller which already has a designated BLE module. After talking to our instructors about this decision, we pulled away from the idea due to the fact that none of the instructors or course assistants had experience working with a Tessel. In addition, working with a Tessel meant writing code in JavaScript, which is a language neither our electrical or software team had a lot of experience in.
+												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As a result, at the conclusion of our first iteration, we pivoted to using an Arduino for a microcontroller. We then had the option of picking from a variety of BLE shields from makers such as RedBearLabs, SeeedStudio, or Adafruit. We ultimately ended up choosing the Adafruit shield because of the documentation they provide for their products. We knew that after we got the shield, we could set it up and use it very quickly following their tutorials.</br>
+												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For the first iteration of bLOCK, the electrical system consisted of three components: an Adafruit BLE shield, an Arduino Uno, and a servo. The electrical system took as input a single character sent from a pre-built app, Adafruit’s  nRF UART app, that interfaced with our BLE shield. On the Arduino side, the Adafruit BLE UART library provided all the functionality needed to read data sent over Bluetooth from the phone.
+</br>
+												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Taking that character as input, the Arduino actuated the servo to move a cardboard circle between locked and unlocked positions. For this very simple iteration, the Arduino was not sending data back to the phone and there was no form of Bluetooth security between the Arduino and the phone. That is, any phone running the same app would be able to connect and write data to the Arduino. If they provided the correct characters, the lock would unlock.
+
+												The Adafruit tutorial that we heavily relied on in this iteration is found<a href="https://learn.adafruit.com/getting-started-with-the-nrf8001-bluefruit-le-breakout/introduction"> here.</a>
+
 											</p>
 										</section>
 										
 										<section>
-											<h3>More intriguing information</h3>
+											<h3>Iteration 2</h3>
 											<p>
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus 
-												justo. Sed dictum rutrum massa eu volutpat. Quisque vitae hendrerit sem. Pellentesque lorem felis, 
-												ultricies a bibendum id, bibendum sit amet nisl. Mauris et lorem quam. Maecenas rutrum imperdiet 
-												vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor. 
-												Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis 
-												rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien
-												vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor. 
-												Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis 
-												rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien. 
-												Donec sagittis massa et leo semper a scelerisque metus faucibus. Morbi congue mattis mi. 
-												Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum commodo luctus.
-											</p>
-										</section>
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In our second iteration, there are no changes to the electrical diagram shown in Iteration 1. However, a lot more functionality was added to the Arduino in terms of reading and writing data over Bluetooth to the phone. The electrical system in this iteration was also fully integrated into the locking mechanism itself.
+												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbspIn our second iteration, there are no changes to the electrical diagram shown in Iteration 1. However, a lot more functionality was added to the Arduino in terms of reading and writing data over Bluetooth to the phone. The electrical system in this iteration was also fully integrated into the locking mechanism itself.</br>
+												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using more of the Adafruit BLE UART library for the Arduino, the Arduino Uno was now successfully connecting and interfacing with the first iteration of our app. In this iteration, the app consisted of a toggle button that switched the states of the lock when pressed: from locked to unlocked and vice versa. This toggle sent a designated character to the Arduino over Bluetooth, much like in Iteration 1, that then actuated a servo.
+</br>
+												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In addition, when the Arduino and the phone connect, the phone (as the master in this configuration) reads RSSI values. RSSI stands for Received Signal Strength Indicator and tells the phone how strong the connection between the two devices is. As the phone moves further away from the Arduino, the RSSI gets more and more negative in value.</br>
+												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In our second iteration, the Arduino, in addition to receiving lock and unlock input from the app, is also receiving RSSI values. When the user stands at a certain distance away from the lock the bike lock automatically locks. Similarly, when the user stands close to the lock, the bike lock automatically unlocks. In this iteration, the user simply needs to stand close enough or far away enough from the lock for the servo to actuate. The lock can still always be controlled via the app’s toggle button.</br>
 
-										<section>
-											<h3>So in conclusion ...</h3>
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus 
-												justo. Sed dictum rutrum massa eu volutpat. Quisque vitae hendrerit sem. Pellentesque lorem felis, 
-												ultricies a bibendum id, bibendum sit amet nisl. Mauris et lorem quam. Maecenas rutrum imperdiet 
-												vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor. 
-												Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis 
-												rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien. 
-												Donec sagittis massa et leo semper a scelerisque metus faucibus. Morbi congue mattis mi. 
-												Phasellus sed nisl vitae.
+
 											</p>
+											
+										</section>
+										<section>
+											<h3>Iteration 3</h3>
 											<p>
-												Suspendisse laoreet metus ut metus imperdiet interdum aliquam justo tincidunt. Mauris dolor urna, 
-												fringilla vel malesuada ac, dignissim eu mi. Praesent mollis massa ac nulla pretium pretium. 
-												Maecenas tortor mauris, consectetur pellentesque dapibus eget, tincidunt vitae arcu. 
+												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In our third iteration, we swapped out the Arduino Uno, which was far larger a microcontroller than we needed, for an Arduino Micro. We had to choose between the Arduino Nano and the Arduino Micro. Ultimately, we chose the Micro despite it being the more expensive of the two, because the Nano is no longer produced and the Micro had all of the functionality we needed for our bLOCK.
+</br>
+												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In addition to swapping in the Micro, in this iteration we powered the lock with a 9V battery simply to check that we could power our bike lock with a battery. We then began to scope out our final battery, because we did not need a full 9V. We decided to order a 3.3 V 850 mAh LiPo battery, in addition to a boost board that would convert the 3.3 V to 5 V. The boost board also added the ability to recharge the lock.</br>
+												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using the battery-powered Micro, we scoped the total power consumption of the lock. Ideally, we want our bike lock to go without charging for a week. Using the battery we selected, our system can only be powered for approximately 17.5 hours. We countered this by setting a sleep mode for the Arduino, which would reduce power consumption of the lock. The BLE shield connects to an interrupt pin on the Arduino and we were hoping to implement a sleep function that would then wake up the Arduino when Bluetooth data from a phone was being transmitted. </br>
+												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;However, given our time constraints, we were unable to implement this functionality by the end of our final iteration.</br>
+											
 											</p>
 										</section>
 
