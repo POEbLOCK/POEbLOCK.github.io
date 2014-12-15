@@ -68,11 +68,7 @@
 												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As a result, at the conclusion of our first iteration, we pivoted to using an Arduino for a microcontroller. We then had the option of picking from a variety of BLE shields from makers such as RedBearLabs, SeeedStudio, or Adafruit. We ultimately ended up choosing the Adafruit shield because of the documentation they provide for their products. We knew that after we got the shield, we could set it up and use it very quickly following their tutorials.</br>
 
 												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For the first iteration of bLOCK, the electrical system consisted of three components: an Adafruit BLE shield, an Arduino Uno, and a servo. The electrical system took as input a single character sent from a pre-built app, Adafruit’s  nRF UART app, that interfaced with our BLE shield. On the Arduino side, the Adafruit BLE UART library provided all the functionality needed to read data sent over Bluetooth from the phone.
-												<p style="text-align:center">
-													
-														<img src="images/IterationMech12.JPG" alt="" /></a>
-														<h3>Iteration 1 Electrical:</h3>
-														This is an image of the arduino uno connected to the servo and the BLE chip. They create the frist iteration of the electrical systems.
+												
 </br>
 												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Taking that character as input, the Arduino actuated the servo to move a cardboard circle between locked and unlocked positions. For this very simple iteration, the Arduino was not sending data back to the phone and there was no form of Bluetooth security between the Arduino and the phone. That is, any phone running the same app would be able to connect and write data to the Arduino. If they provided the correct characters, the lock would unlock.</br>
 
@@ -92,9 +88,9 @@
 												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In our second iteration, the Arduino, in addition to receiving lock and unlock input from the app, is also receiving RSSI values. When the user stands at a certain distance away from the lock the bike lock automatically locks. Similarly, when the user stands close to the lock, the bike lock automatically unlocks. In this iteration, the user simply needs to stand close enough or far away enough from the lock for the servo to actuate. The lock can still always be controlled via the app’s toggle button.</br>
 
 
+
 											</p>
 											
-										</section>
 										<section>
 											<h3>Iteration 3</h3>
 											<p>
@@ -129,7 +125,32 @@ However, given our time constraints, we were unable to implement this functional
 												<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Only if the received passcode matches the one in memory does the Arduino concede control of the locking mechanism itself to the phone. If both codes match, the phone receives lock control and can actuate the servo to change the state of the lock.</br>
 											
 											</p>
+											<div class= "row">
+											<div class="6u">
+												
+												<!-- Feature -->
+													<section class="box feature">
+														<a class="image featured"><img src=images/Integration4.JPG></a>
+														<h3>The Components</h3>
+														<p>
+															This is a picture of all of the components placed inside the box.
+														</p>
+													</div>
+											
+										
+										<div class="6u">
+												
+												<!-- Feature -->
+													<section class="box feature">
+														<a class="image featured"><img src=images/Integration4.JPG></a>
+														<h3>Electrical Final</h3>
+														<p>
+															Side View of the components. The wires are placed inside keeping the electrical components secure.
+														</p>
+													</div>
+											
 										</section>
+										
 
 									</article>
 
